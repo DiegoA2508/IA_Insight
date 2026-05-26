@@ -3,12 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IA·Insight</title>
+  <meta name="description" content="Principios, riesgos y buenas prácticas para construir y usar Inteligencia Artificial de forma responsable." />
+  <title>IA·Insight — Ética</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/animations.css" />
+
+  <style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#050810;--accent:#4F8EF7;--accent2:#A259FF;--teal:#4FC8DC;--warn:#FFB020;
+    --text:#EDF0FA;--muted:#7B84A3;--border:rgba(255,255,255,0.07);
+    --font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+  }
+  body{background:var(--bg);font-family:var(--font-body);color:var(--text);overflow-x:hidden;}
+  .gradient-text{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  h2{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,3.5vw,40px);line-height:1.1;letter-spacing:-.02em;}
+  h3{font-family:var(--font-display);font-weight:800;font-size:21px;line-height:1.2;letter-spacing:-.01em;}
+  p{color:var(--muted);font-weight:300;line-height:1.75;}
+
+  /* HERO */
+  .hero{padding:64px 24px 48px;text-align:center;position:relative;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(162,89,255,0.08),transparent 70%);pointer-events:none;}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);border:1px solid rgba(162,89,255,0.3);background:rgba(162,89,255,0.08);padding:5px 14px;border-radius:100px;margin-bottom:24px;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--accent2);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:16px;}
+  .hero p{max-width:620px;margin:0 auto;font-size:15px;}
+
+  /* SECTION HEADER */
+  .section-head{padding:0 24px;margin:6px auto 18px;max-width:1100px;text-align:center;}
+  .kicker{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .section-desc{max-width:720px;margin:0 auto;font-size:13px;}
+
+  /* CARDS GRID */
+  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 24px 48px;max-width:1100px;margin:0 auto;}
+  .card{border-radius:18px;padding:28px;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:default;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.08);}
+  .card:hover{transform:translateY(-6px);}
+  .card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+  .card-tag{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+  .card h3{margin-bottom:12px;font-size:18px;}
+  .card p{font-size:13px;margin-bottom:18px;}
+  .card-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+  .card-list-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
+  .dot-sm{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+  .card-footer{padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);}
+  .card-footer strong{color:var(--text);}
+
+  .c-blue{border-color:rgba(79,142,247,0.2);}
+  .c-blue:hover{box-shadow:0 20px 50px rgba(79,142,247,0.12);border-color:rgba(79,142,247,0.45);}
+  .c-purple{border-color:rgba(162,89,255,0.2);}
+  .c-purple:hover{box-shadow:0 20px 50px rgba(162,89,255,0.12);border-color:rgba(162,89,255,0.45);}
+  .c-teal{border-color:rgba(79,200,220,0.2);}
+  .c-teal:hover{box-shadow:0 20px 50px rgba(79,200,220,0.10);border-color:rgba(79,200,220,0.45);}
+  .c-warn{border-color:rgba(255,176,32,0.22);}
+  .c-warn:hover{box-shadow:0 20px 50px rgba(255,176,32,0.10);border-color:rgba(255,176,32,0.42);}
+
+  .icon-blue{background:rgba(79,142,247,0.12);border:1px solid rgba(79,142,247,0.25);}
+  .icon-purple{background:rgba(162,89,255,0.12);border:1px solid rgba(162,89,255,0.25);}
+  .icon-teal{background:rgba(79,200,220,0.10);border:1px solid rgba(79,200,220,0.2);}
+  .icon-warn{background:rgba(255,176,32,0.10);border:1px solid rgba(255,176,32,0.22);}
+
+  .tag-blue{color:var(--accent);}
+  .tag-purple{color:var(--accent2);}
+  .tag-teal{color:var(--teal);}
+  .tag-warn{color:var(--warn);}
+
+  .dot-blue{background:var(--accent);}
+  .dot-purple{background:var(--accent2);}
+  .dot-teal{background:var(--teal);}
+  .dot-warn{background:var(--warn);}
+
+  /* PROCESS */
+  .process{padding:48px 24px;text-align:center;background:rgba(255,255,255,0.015);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .process > .sub{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .process p{max-width:560px;margin:0 auto 36px;font-size:13px;}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;max-width:1100px;margin:0 auto;}
+  .steps::before{content:'';position:absolute;top:35px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+  .step{text-align:center;padding:0 12px;position:relative;z-index:1;}
+  .step-circle{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+  .s-blue{background:rgba(79,142,247,0.12);border:1px solid rgba(79,142,247,0.3);}
+  .s-purple{background:rgba(162,89,255,0.12);border:1px solid rgba(162,89,255,0.3);}
+  .s-teal{background:rgba(79,200,220,0.1);border:1px solid rgba(79,200,220,0.25);}
+  .s-mix{background:linear-gradient(135deg,rgba(79,142,247,0.15),rgba(162,89,255,0.15));border:1px solid rgba(255,255,255,0.12);}
+  .step-num{font-family:var(--font-display);font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text);}
+  .step p{font-size:12px;margin-bottom:0;}
+
+  /* CHECKLIST */
+  .check{max-width:1100px;margin:0 auto;padding:0 24px 44px;}
+  .check-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:start;}
+  .panel{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:26px;}
+  .panel h3{font-size:18px;margin-bottom:12px;}
+  .checklist{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+  .check-item{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px;line-height:1.65;}
+  .tick{width:18px;height:18px;border-radius:6px;background:rgba(79,142,247,0.12);border:1px solid rgba(79,142,247,0.25);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+
+  /* CTA */
+  .cta-box{max-width:1100px;margin:0 auto 48px;background:linear-gradient(135deg,rgba(79,142,247,0.08),rgba(162,89,255,0.08));border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:44px;text-align:center;}
+  .cta-box h2{margin-bottom:12px;}
+  .cta-box p{max-width:520px;margin:0 auto 28px;font-size:13px;}
+  .btn{display:inline-block;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:var(--font-body);font-size:14px;transition:transform .2s,box-shadow .2s;box-shadow:0 0 28px rgba(79,142,247,0.25);text-decoration:none;}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(79,142,247,0.4);}
+  .btn-ghost{background:rgba(255,255,255,0.05);box-shadow:none;border:1px solid rgba(255,255,255,0.10);}
+  .btn-ghost:hover{box-shadow:none;background:rgba(255,255,255,0.08);}
+
+  @media(max-width:900px){
+    .cards-grid{grid-template-columns:1fr 1fr;}
+    .check-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:640px){
+    .cards-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr;row-gap:32px;}
+    .steps::before{display:none;}
+  }
+  </style>
 </head>
 <body>
   <div class="mesh" aria-hidden="true"></div>
@@ -38,15 +148,231 @@
     <a href="aplicaciones.html">Aplicaciones <span>→</span></a>
     <a href="historia.html">Historia <span>→</span></a>
     <a href="etica.html">Ética y futuro <span>→</span></a>
-    <button class="nav-mobile-cta" onclick="location.href='sobre-ia.html'">Comenzar a explorar</button>
+    <button class="nav-mobile-cta" data-href="sobre-ia.html">Comenzar a explorar</button>
   </div>
 
-  <main class="container section" style="position:relative;z-index:10;padding-top:130px;">
-    <!-- Contenido de la sección etica -->
-    <h1 class="anim-fade-up gradient-text">Próximamente</h1>
-    <p class="anim-fade-up-2" style="margin-top:16px;max-width:520px;">
-      Esta sección está en construcción. Vuelve pronto para ver el contenido completo.
-    </p>
+  <main style="position:relative;z-index:10;padding-top:68px;">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge"><span class="dot"></span>Ética y futuro</div>
+      <h1>IA con <br><span class="gradient-text">responsabilidad</span></h1>
+      <p>La IA puede amplificar beneficios… o riesgos. La clave es diseñar, evaluar y desplegar sistemas que sean justos, seguros, transparentes y útiles.</p>
+
+      <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="aplicaciones.html" class="btn btn-ghost">Volver a aplicaciones</a>
+        <a href="historia.html" class="btn">Ver historia y evolución →</a>
+      </div>
+    </div>
+
+    <!-- PRINCIPIOS -->
+    <div class="section-head">
+      <span class="kicker">Principios</span>
+      <h2>Lo que buscamos al construir <span class="gradient-text">IA confiable</span></h2>
+      <p class="section-desc">Estos principios no son “checklist de marketing”. Son guías para tomar decisiones: qué datos usar, qué medir, qué límites poner y cómo explicar el sistema.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card c-blue reveal">
+        <div class="card-icon icon-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l7 4v6c0 5-7 10-7 10S5 17 5 12V6l7-4z"/>
+            <path d="M9 12l2 2 4-5"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-blue">Seguridad</div>
+        <h3>Segura y robusta</h3>
+        <p>Debe resistir fallos, datos raros y uso malicioso, sin romperse de forma peligrosa.</p>
+        <div class="card-footer"><strong>Práctica:</strong> pruebas adversarias + límites + monitoreo.</div>
+      </div>
+
+      <div class="card c-purple reveal reveal-delay-1">
+        <div class="card-icon icon-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a7 7 0 0 1 7 7c0 3-2 4-2 6H7c0-2-2-3-2-6a7 7 0 0 1 7-7z"/>
+            <path d="M9 21h6"/>
+            <path d="M10 18h4"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-purple">Transparencia</div>
+        <h3>Explicable</h3>
+        <p>Cuando impacta decisiones, necesitamos entender por qué sugiere algo y qué tan confiable es.</p>
+        <div class="card-footer"><strong>Práctica:</strong> trazabilidad, fuentes, incertidumbre.</div>
+      </div>
+
+      <div class="card c-teal reveal reveal-delay-2">
+        <div class="card-icon icon-teal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4FC8DC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-teal">Responsabilidad</div>
+        <h3>Humano al mando</h3>
+        <p>En decisiones críticas, la IA debe asistir, no reemplazar el juicio humano.</p>
+        <div class="card-footer"><strong>Práctica:</strong> revisión humana + escalamiento.</div>
+      </div>
+    </div>
+
+    <!-- RIESGOS -->
+    <div class="section-head" style="margin-top:-10px;">
+      <span class="kicker">Riesgos</span>
+      <h2>Lo que puede salir <span class="gradient-text">mal</span></h2>
+      <p class="section-desc">Muchos problemas no son “del algoritmo” solamente: nacen de datos, incentivos, integración y uso real.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card c-warn reveal">
+        <div class="card-icon icon-warn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 9v4"/>
+            <path d="M12 17h.01"/>
+            <path d="M10.3 3.6L2.5 18a2 2 0 0 0 1.8 3h15.4a2 2 0 0 0 1.8-3L13.7 3.6a2 2 0 0 0-3.4 0z"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-warn">Sesgos</div>
+        <h3>Discriminación</h3>
+        <p>Si los datos reflejan desigualdades, el sistema puede reproducirlas o amplificarlas.</p>
+        <div class="card-list">
+          <div class="card-list-item"><span class="dot-sm dot-warn"></span>Subrepresentación</div>
+          <div class="card-list-item"><span class="dot-sm dot-warn"></span>Variables proxy</div>
+          <div class="card-list-item"><span class="dot-sm dot-warn"></span>Evaluación incompleta</div>
+        </div>
+        <div class="card-footer"><strong>Mitigación:</strong> auditoría + métricas de equidad.</div>
+      </div>
+
+      <div class="card c-purple reveal reveal-delay-1">
+        <div class="card-icon icon-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12a8 8 0 0 1 16 0"/>
+            <path d="M12 12v4"/>
+            <path d="M8 20h8"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-purple">Privacidad</div>
+        <h3>Exposición de datos</h3>
+        <p>Riesgo de filtrar información sensible o usar datos sin consentimiento adecuado.</p>
+        <div class="card-footer"><strong>Mitigación:</strong> minimización + controles + gobernanza.</div>
+      </div>
+
+      <div class="card c-blue reveal reveal-delay-2">
+        <div class="card-icon icon-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4"/>
+            <path d="M12 18v4"/>
+            <path d="M4.9 4.9l2.8 2.8"/>
+            <path d="M16.3 16.3l2.8 2.8"/>
+            <path d="M2 12h4"/>
+            <path d="M18 12h4"/>
+            <path d="M4.9 19.1l2.8-2.8"/>
+            <path d="M16.3 7.7l2.8-2.8"/>
+            <path d="M14.5 9.5a3.5 3.5 0 1 1-5 5"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-blue">Seguridad</div>
+        <h3>Uso malicioso</h3>
+        <p>Automatización de estafas, desinformación o ataques si no hay límites y detección.</p>
+        <div class="card-footer"><strong>Mitigación:</strong> políticas + guardrails + monitoreo.</div>
+      </div>
+    </div>
+
+    <!-- PROCESO -->
+    <section class="process">
+      <p class="sub">Buenas prácticas</p>
+      <h2 style="margin-bottom:8px;">Cómo desplegar IA de forma <span class="gradient-text">responsable</span></h2>
+      <p>Un enfoque práctico: diseñar con límites, evaluar antes de lanzar, monitorear en producción y mejorar continuamente.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-circle s-blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3h7v7"/>
+              <path d="M19 3l-8 8"/>
+              <path d="M5 7v14h14"/>
+            </svg>
+          </div>
+          <div class="step-num">01 — Definir límites</div>
+          <p>Qué puede y qué no puede hacer el sistema.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-circle s-purple">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <div class="step-num">02 — Evaluar</div>
+          <p>Calidad, sesgo, seguridad y errores.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-circle s-teal">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4FC8DC" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20V10"/>
+              <path d="M18 20V4"/>
+              <path d="M6 20v-6"/>
+            </svg>
+          </div>
+          <div class="step-num">03 — Monitorear</div>
+          <p>Deriva, fallos, abuso y feedback real.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-circle s-mix">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#4F8EF7"/>
+                  <stop offset="100%" stop-color="#A259FF"/>
+                </linearGradient>
+              </defs>
+              <path d="M21 12a9 9 0 1 1-3-6.7" stroke="url(#g2)"/>
+              <path d="M21 3v6h-6" stroke="url(#g2)"/>
+            </svg>
+          </div>
+          <div class="step-num">04 — Mejorar</div>
+          <p>Iterar con métricas y nuevas pruebas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section class="check" aria-label="Checklist de IA responsable">
+      <div class="check-grid">
+        <div class="panel reveal">
+          <div class="card-tag tag-blue">Checklist rápida</div>
+          <h3>Antes de lanzar un sistema de IA</h3>
+          <p>Una lista corta para evitar los errores más comunes. Ideal para proyectos escolares o prototipos.</p>
+
+          <div class="checklist">
+            <div class="check-item"><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>¿El objetivo está bien definido y medible (qué es “éxito” y qué es “error”)?</span></div>
+            <div class="check-item"><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>¿Los datos tienen consentimiento/permiso y no incluyen información innecesaria?</span></div>
+            <div class="check-item"><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>¿Probaste el sistema en diferentes grupos/situaciones para detectar sesgos?</span></div>
+            <div class="check-item"><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>¿Hay una forma de reportar errores y corregirlos rápido?</span></div>
+            <div class="check-item"><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>¿Explicas al usuario que es IA y cuáles son sus límites?</span></div>
+          </div>
+        </div>
+
+        <aside class="panel reveal reveal-delay-1">
+          <div class="card-tag tag-purple">Nota</div>
+          <h3>La IA no es neutral</h3>
+          <p>Los modelos aprenden de datos y los datos vienen del mundo real. Por eso, siempre hay decisiones humanas: qué se mide, qué se optimiza y qué se ignora.</p>
+          <div class="card-footer"><strong>Idea clave:</strong> “No solo importa que funcione. Importa para quién funciona y en qué condiciones.”</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h2>¿Quieres ver cómo llegamos hasta aquí?</h2>
+      <p>La ética cobra sentido cuando entendemos la evolución de la IA y por qué hoy es tan poderosa.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="historia.html" class="btn">Ver historia →</a>
+        <a href="sobre-ia.html" class="btn btn-ghost">Volver a fundamentos</a>
+      </div>
+    </div>
+
   </main>
 
   <!-- ── FOOTER ── -->

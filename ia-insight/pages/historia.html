@@ -3,12 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IA·Insight</title>
+  <meta name="description" content="Historia y evolución de la Inteligencia Artificial: hitos desde Turing y Dartmouth hasta Transformers y modelos modernos." />
+  <title>IA·Insight — Historia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/animations.css" />
+
+  <style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#050810;--accent:#4F8EF7;--accent2:#A259FF;--teal:#4FC8DC;
+    --text:#EDF0FA;--muted:#7B84A3;--border:rgba(255,255,255,0.07);
+    --font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+  }
+  body{background:var(--bg);font-family:var(--font-body);color:var(--text);overflow-x:hidden;}
+  .gradient-text{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  h2{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,3.5vw,40px);line-height:1.1;letter-spacing:-.02em;}
+  h3{font-family:var(--font-display);font-weight:800;font-size:21px;line-height:1.2;letter-spacing:-.01em;}
+  p{color:var(--muted);font-weight:300;line-height:1.75;}
+
+  /* HERO */
+  .hero{padding:64px 24px 48px;text-align:center;position:relative;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(79,142,247,0.08),transparent 70%);pointer-events:none;}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(79,142,247,0.3);background:rgba(79,142,247,0.08);padding:5px 14px;border-radius:100px;margin-bottom:24px;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:16px;}
+  .hero p{max-width:560px;margin:0 auto;font-size:15px;}
+
+  /* SECTION HEADER */
+  .section-head{padding:0 24px;margin:6px auto 18px;max-width:1100px;text-align:center;}
+  .kicker{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .section-desc{max-width:720px;margin:0 auto;font-size:13px;}
+
+  /* MILESTONES */
+  .milestones{max-width:1200px;margin:0 auto;padding:0 24px 48px;}
+  .timeline-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:18px;}
+  .mile{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:28px;transition:transform .3s,box-shadow .3s,border-color .3s;}
+  .mile:hover{transform:translateY(-6px);border-color:rgba(79,142,247,0.25);box-shadow:0 20px 50px rgba(79,142,247,0.10);}
+  .mile-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .year{
+    font-family:var(--font-display);
+    font-size:26px;
+    font-weight:800;
+    letter-spacing:-.02em;
+    color:var(--text);
+  }
+  .chip{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);}
+  .chip-blue{border-color:rgba(79,142,247,0.25);background:rgba(79,142,247,0.12);}
+  .chip-purple{border-color:rgba(162,89,255,0.25);background:rgba(162,89,255,0.12);}
+  .chip-teal{border-color:rgba(79,200,220,0.22);background:rgba(79,200,220,0.10);}
+  .chip-warn{border-color:rgba(255,176,32,0.25);background:rgba(255,176,32,0.10);}
+  .mile h3{font-size:18px;margin-bottom:10px;}
+  .mile p{font-size:13px;margin-bottom:0;}
+  .mile ul{margin-top:14px;display:flex;flex-direction:column;gap:8px;list-style:none;}
+  .mile li{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--muted);line-height:1.6;}
+  .bullet{width:8px;height:8px;border-radius:4px;background:rgba(79,142,247,0.75);margin-top:6px;flex-shrink:0;}
+  .bullet-purple{background:rgba(162,89,255,0.75);}
+  .bullet-teal{background:rgba(79,200,220,0.75);}
+  .bullet-warn{background:rgba(255,176,32,0.85);}
+
+  /* RECAP */
+  .recap-section{width:100%;max-width:900px;margin:0 auto;padding:0 24px 52px;text-align:center;}
+  .recap-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  .recap-panel{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:28px;text-align:center;}
+  .recap-panel .tag{display:block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;text-align:center;}
+  .tag-blue{color:var(--accent);}
+  .tag-purple{color:var(--accent2);}
+  .tag-teal{color:var(--teal);}
+  .recap-panel h3{margin-bottom:12px;text-align:center;}
+  .recap-panel p{font-size:13px;text-align:center;max-width:640px;margin-left:auto;margin-right:auto;}
+  .recap-panel .stat-row{margin-top:18px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .recap-stat{min-width:160px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:14px;padding:16px 14px;text-align:center;}
+  .recap-stat-num{font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:-.02em;color:var(--text);}
+  .recap-stat-label{margin-top:6px;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+
+  /* CTA */
+  .cta-wrap{max-width:1100px;margin:0 auto 40px;padding:0 24px;}
+  .cta-box{background:linear-gradient(135deg,rgba(79,142,247,0.08),rgba(162,89,255,0.08));border:1px solid rgba(255,255,255,0.10);border-radius:20px;padding:44px;text-align:center;}
+  .cta-box h2{text-align:center;}
+  .cta-box p{max-width:620px;margin:0 auto 28px;text-align:center;}
+  .btn{display:inline-block;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:var(--font-body);font-size:14px;transition:transform .2s,box-shadow .2s;box-shadow:0 0 28px rgba(79,142,247,0.25);text-decoration:none;}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(79,142,247,0.4);}
+  .btn-ghost{background:rgba(255,255,255,0.05);box-shadow:none;border:1px solid rgba(255,255,255,0.12);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.08);box-shadow:none;}
+
+  @media(max-width:1100px){.timeline-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){
+    .timeline-grid{grid-template-columns:1fr;}
+  }
+  </style>
 </head>
 <body>
   <div class="mesh" aria-hidden="true"></div>
@@ -38,15 +124,226 @@
     <a href="aplicaciones.html">Aplicaciones <span>→</span></a>
     <a href="historia.html">Historia <span>→</span></a>
     <a href="etica.html">Ética y futuro <span>→</span></a>
-    <button class="nav-mobile-cta" onclick="location.href='sobre-ia.html'">Comenzar a explorar</button>
+    <button class="nav-mobile-cta" data-href="sobre-ia.html">Comenzar a explorar</button>
   </div>
 
-  <main class="container section" style="position:relative;z-index:10;padding-top:130px;">
-    <!-- Contenido de la sección historia -->
-    <h1 class="anim-fade-up gradient-text">Próximamente</h1>
-    <p class="anim-fade-up-2" style="margin-top:16px;max-width:520px;">
-      Esta sección está en construcción. Vuelve pronto para ver el contenido completo.
-    </p>
+  <main style="position:relative;z-index:10;padding-top:68px;">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge"><span class="dot"></span>Historia</div>
+      <h1>El viaje de la<br><span class="gradient-text">Inteligencia Artificial</span></h1>
+      <p>La IA no apareció de golpe: fue evolucionando en olas de ideas, datos, computación y técnicas que se fueron conectando con el tiempo.</p>
+    </div>
+
+    <!-- HITOS -->
+    <div class="section-head">
+      <span class="kicker">Hitos clave</span>
+      <h2>De la teoría a los <span class="gradient-text">modelos modernos</span></h2>
+      <p class="section-desc">Cada etapa cambió “lo que era posible” y “cómo se entrenaba” la IA. Aquí tienes una ruta rápida por las épocas más influyentes.</p>
+    </div>
+
+    <div class="milestones">
+      <div class="timeline-grid">
+
+        <div class="mile">
+          <div class="mile-top">
+            <div class="chip chip-blue" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"/>
+                <path d="M8 7h8"/>
+                <path d="M8 11h8"/>
+              </svg>
+            </div>
+            <div class="year">1950</div>
+          </div>
+          <h3>La pregunta de Turing</h3>
+          <p>Se plantea el “juego de imitación”, abriendo el camino a evaluar si una máquina puede comportarse de forma inteligente.</p>
+          <ul>
+            <li><span class="bullet"></span>Test de Turing</li>
+            <li><span class="bullet"></span>IA como tarea verificable</li>
+          </ul>
+        </div>
+
+        <div class="mile">
+          <div class="mile-top">
+            <div class="chip chip-purple" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l9 5-9 5-9-5 9-5z"/>
+                <path d="M3 12l9 5 9-5"/>
+                <path d="M3 17l9 5 9-5"/>
+              </svg>
+            </div>
+            <div class="year">1956</div>
+          </div>
+          <h3>Dartmouth y el término “IA”</h3>
+          <p>El campo toma nombre y enfoque. La meta: construir máquinas “inteligentes” con principios científicos.</p>
+          <ul>
+            <li><span class="bullet bullet-purple"></span>Conferencia Dartmouth</li>
+            <li><span class="bullet bullet-purple"></span>Reglas y simbolismo</li>
+          </ul>
+        </div>
+
+        <div class="mile">
+          <div class="mile-top">
+            <div class="chip chip-teal" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4FC8DC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z"/>
+                <path d="M9 9h6v6H9z"/>
+              </svg>
+            </div>
+            <div class="year">1980s</div>
+          </div>
+          <h3>Sistemas expertos</h3>
+          <p>La IA se apoya en conocimiento codificado: reglas, inferencias y lógica para tareas acotadas.</p>
+          <ul>
+            <li><span class="bullet bullet-teal"></span>Ingeniería de conocimiento</li>
+            <li><span class="bullet bullet-teal"></span>Limitaciones por escalado</li>
+          </ul>
+        </div>
+
+        <div class="mile">
+          <div class="mile-top">
+            <div class="chip chip-blue" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20"/>
+                <path d="M17 7l-5-5-5 5"/>
+                <path d="M7 17l5 5 5-5"/>
+              </svg>
+            </div>
+            <div class="year">1997</div>
+          </div>
+          <h3>Deep Blue</h3>
+          <p>Un hito mediático que combina búsqueda y heurísticas para dominar ajedrez con gran capacidad de cálculo.</p>
+          <ul>
+            <li><span class="bullet"></span>Búsqueda + optimización</li>
+            <li><span class="bullet"></span>IA “competitiva”</li>
+          </ul>
+        </div>
+
+        <div class="mile">
+          <div class="mile-top">
+            <div class="chip chip-purple" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="M12 5v14"/>
+                <path d="M7 7l10 10"/>
+                <path d="M17 7L7 17"/>
+              </svg>
+            </div>
+            <div class="year">2012</div>
+          </div>
+          <h3>Revolución del Deep Learning</h3>
+          <p>Las redes neuronales profundas ganan terreno: más datos + mejores GPUs + entrenamiento más efectivo.</p>
+          <ul>
+            <li><span class="bullet bullet-purple"></span>Representaciones aprendidas</li>
+            <li><span class="bullet bullet-purple"></span>Mejor rendimiento en visión</li>
+          </ul>
+        </div>
+
+        <div class="mile">
+          <div class="mile-top">
+            <div class="chip chip-teal" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4FC8DC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19h16"/>
+                <path d="M6 17V7l6-3 6 3v10"/>
+              </svg>
+            </div>
+            <div class="year">2017</div>
+          </div>
+          <h3>Transformers</h3>
+          <p>El modelo se centra en “atención”, mejorando el aprendizaje de dependencias y la calidad en lenguaje.</p>
+          <ul>
+            <li><span class="bullet bullet-teal"></span>Atención (attention)</li>
+            <li><span class="bullet bullet-teal"></span>Base de muchos LLM</li>
+          </ul>
+        </div>
+
+        <div class="mile">
+          <div class="mile-top">
+            <div class="chip chip-blue" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v12H5.5L4 19z"/>
+                <path d="M7 9h10"/>
+                <path d="M7 12h7"/>
+              </svg>
+            </div>
+            <div class="year">2020s</div>
+          </div>
+          <h3>LLMs y asistentes</h3>
+          <p>Modelos de lenguaje a gran escala permiten chat, resumen, redacción y razonamiento aproximado.</p>
+          <ul>
+            <li><span class="bullet"></span>IA generativa</li>
+            <li><span class="bullet"></span>Interacción conversacional</li>
+          </ul>
+        </div>
+
+        <div class="mile">
+          <div class="mile-top">
+            <div class="chip chip-purple" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3 7h7l-5.5 4.2L18 22l-6-4-6 4 1.5-8.8L2 9h7z"/>
+              </svg>
+            </div>
+            <div class="year">2024+</div>
+          </div>
+          <h3>Multimodal y más utilidad</h3>
+          <p>La IA se conecta a texto + visión + audio, y se vuelve más práctica con integración en productos y flujos reales.</p>
+          <ul>
+            <li><span class="bullet bullet-purple"></span>Accesibilidad y automatización</li>
+            <li><span class="bullet bullet-purple"></span>Retos de seguridad</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RECAP -->
+    <section class="recap-section" aria-label="Resumen">
+      <div class="recap-grid">
+        <div class="recap-panel reveal">
+          <div class="tag tag-blue">Idea central</div>
+          <h3>Lo que cambia con el tiempo</h3>
+          <p>La IA avanza cuando se combinan tres factores: mejores datos, más cómputo y técnicas de entrenamiento más eficaces.</p>
+          <div class="stat-row">
+            <div class="recap-stat">
+              <div class="recap-stat-num">Datos</div>
+              <div class="recap-stat-label">variedad y calidad</div>
+            </div>
+            <div class="recap-stat">
+              <div class="recap-stat-num">Cómputo</div>
+              <div class="recap-stat-label">GPUs y escalado</div>
+            </div>
+            <div class="recap-stat">
+              <div class="recap-stat-num">Entrenamiento</div>
+              <div class="recap-stat-label">mejores objetivos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="recap-panel reveal reveal-delay-1">
+          <div class="tag tag-purple">Para recordar</div>
+          <h3>La historia no es lineal</h3>
+          <p>Hubo “inviernos” de IA cuando la promesa superaba la tecnología disponible. Hoy, el ciclo se repite, pero con herramientas más maduras.</p>
+          <p style="margin-top:14px;font-size:13px;">
+            Por eso, entender la evolución también es entender por qué la ética y la seguridad se vuelven parte del diseño, no un extra.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <div class="cta-box">
+        <h2 style="margin-bottom:10px;">¿Siguiente paso?</h2>
+        <p>Si ya conoces la evolución, elige el enfoque con el que quieras profundizar: fundamentos, casos de uso, o cómo aplicar IA con responsabilidad.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="sobre-ia.html" class="btn btn-ghost">Volver a ¿Qué es? →</a>
+          <a href="aplicaciones.html" class="btn">Explorar aplicaciones →</a>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- ── FOOTER ── -->

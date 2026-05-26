@@ -41,33 +41,85 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById('nav-mobile');
 
   if (hamburger && mobileMenu) {
+    // Accesibilidad: estado inicial
+    mobileMenu.setAttribute('aria-hidden', 'true');
+
+    let lastFocusedEl = null;
+
+    const closeMobileMenu = () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+
+      // Devuelve el foco al botón (o al último foco si existe)
+      if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+        lastFocusedEl.focus();
+      } else {
+        hamburger.focus?.();
+      }
+    };
+
+    const openMobileMenu = () => {
+      lastFocusedEl = document.activeElement;
+      hamburger.classList.add('open');
+      mobileMenu.classList.add('open');
+      hamburger.setAttribute('aria-expanded', true);
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Enfoca el primer elemento interactivo del menú
+      const firstFocusable = mobileMenu.querySelector('a, button');
+      firstFocusable?.focus?.();
+    };
+
     hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', isOpen);
-      // Bloquea scroll del body cuando el menú está abierto
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      const willOpen = !hamburger.classList.contains('open');
+      if (willOpen) openMobileMenu();
+      else closeMobileMenu();
     });
 
     // Cierra el menú al hacer clic en un link
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
+        closeMobileMenu();
       });
     });
+
+    // CTA del menú móvil (evita onclick inline)
+    const mobileCta = mobileMenu.querySelector('.nav-mobile-cta[data-href]');
+    if (mobileCta) {
+      mobileCta.addEventListener('click', () => {
+        const href = mobileCta.getAttribute('data-href');
+        if (href) window.location.href = href;
+      });
+    }
 
     // Cierra el menú al hacer clic fuera
     document.addEventListener('click', (e) => {
       if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
+        if (hamburger.classList.contains('open')) closeMobileMenu();
+      }
+    });
+
+    // Cierra con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && hamburger.classList.contains('open')) {
+        e.preventDefault();
+        closeMobileMenu();
       }
     });
   }
+
+  // CTA del menú móvil en index.html (cuando existe fuera del bloque anterior)
+  document.querySelectorAll('.nav-mobile-cta[data-href]').forEach(btn => {
+    // Evita duplicar listener si el botón está dentro del mobileMenu manejado arriba
+    if (btn.closest('#nav-mobile') && hamburger && mobileMenu) return;
+    btn.addEventListener('click', () => {
+      const href = btn.getAttribute('data-href');
+      if (href) window.location.href = href;
+    });
+  });
 
 });

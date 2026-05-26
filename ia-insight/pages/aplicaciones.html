@@ -3,12 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IA·Insight</title>
+  <meta name="description" content="Explora aplicaciones reales de la IA en salud, finanzas, comercio, industria, educación y atención al cliente." />
+  <title>IA·Insight — Aplicaciones</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/animations.css" />
+
+  <style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#050810;--accent:#4F8EF7;--accent2:#A259FF;--teal:#4FC8DC;
+    --text:#EDF0FA;--muted:#7B84A3;--border:rgba(255,255,255,0.07);
+    --font-display:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+  }
+  body{background:var(--bg);font-family:var(--font-body);color:var(--text);overflow-x:hidden;}
+  .gradient-text{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  h2{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,3.5vw,40px);line-height:1.1;letter-spacing:-.02em;}
+  h3{font-family:var(--font-display);font-weight:800;font-size:21px;line-height:1.2;letter-spacing:-.01em;}
+  p{color:var(--muted);font-weight:300;line-height:1.75;}
+
+  /* HERO */
+  .hero{padding:64px 24px 48px;text-align:center;position:relative;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(79,142,247,0.08),transparent 70%);pointer-events:none;}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(79,142,247,0.3);background:rgba(79,142,247,0.08);padding:5px 14px;border-radius:100px;margin-bottom:24px;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:16px;}
+  .hero p{max-width:560px;margin:0 auto;font-size:15px;}
+
+  /* CARDS GRID */
+  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 24px 48px;margin-top:26px;}
+  .card{border-radius:18px;padding:28px;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:default;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.08);}
+  .card:hover{transform:translateY(-6px);}
+  .card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+  .card-tag{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+  .tag-blue{color:var(--accent);}
+  .tag-purple{color:var(--accent2);}
+  .tag-teal{color:var(--teal);}
+  .card h3{margin-bottom:12px;font-size:18px;}
+  .card p{font-size:13px;margin-bottom:18px;}
+
+  .card-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+  .card-list-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
+  .dot-sm{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+  .dot-blue{background:var(--accent);}
+  .dot-purple{background:var(--accent2);}
+  .dot-teal{background:var(--teal);}
+  .card-footer{padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);}
+  .card-footer strong{color:var(--text);}
+
+  .c-blue{border-color:rgba(79,142,247,0.2);}
+  .c-blue:hover{box-shadow:0 20px 50px rgba(79,142,247,0.12);border-color:rgba(79,142,247,0.45);}
+  .c-purple{border-color:rgba(162,89,255,0.2);}
+  .c-purple:hover{box-shadow:0 20px 50px rgba(162,89,255,0.12);border-color:rgba(162,89,255,0.45);}
+  .c-teal{border-color:rgba(79,200,220,0.2);}
+  .c-teal:hover{box-shadow:0 20px 50px rgba(79,200,220,0.10);border-color:rgba(79,200,220,0.45);}
+
+  .icon-blue{background:rgba(79,142,247,0.12);border:1px solid rgba(79,142,247,0.25);}
+  .icon-purple{background:rgba(162,89,255,0.12);border:1px solid rgba(162,89,255,0.25);}
+  .icon-teal{background:rgba(79,200,220,0.10);border:1px solid rgba(79,200,220,0.2);}
+
+  /* PROCESS */
+  .process{padding:48px 24px;text-align:center;background:rgba(255,255,255,0.015);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .process > .sub{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .process p{max-width:520px;margin:0 auto 36px;font-size:13px;}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .steps::before{content:'';position:absolute;top:35px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+  .step{text-align:center;padding:0 12px;position:relative;z-index:1;}
+  .step-circle{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+  .s-blue{background:rgba(79,142,247,0.12);border:1px solid rgba(79,142,247,0.3);}
+  .s-purple{background:rgba(162,89,255,0.12);border:1px solid rgba(162,89,255,0.3);}
+  .s-teal{background:rgba(79,200,220,0.1);border:1px solid rgba(79,200,220,0.25);}
+  .s-mix{background:linear-gradient(135deg,rgba(79,142,247,0.15),rgba(162,89,255,0.15));border:1px solid rgba(255,255,255,0.12);}
+  .step-num{font-family:var(--font-display);font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text);}
+  .step p{font-size:12px;margin-bottom:0;}
+
+  /* CTA */
+  .cta-box{margin:0 24px 48px;background:linear-gradient(135deg,rgba(79,142,247,0.08),rgba(162,89,255,0.08));border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:44px;text-align:center;}
+  .cta-box h2{margin-bottom:12px;}
+  .cta-box p{max-width:420px;margin:0 auto 28px;font-size:13px;}
+  .btn{display:inline-block;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:var(--font-body);font-size:14px;transition:transform .2s,box-shadow .2s;box-shadow:0 0 28px rgba(79,142,247,0.25);text-decoration:none;}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(79,142,247,0.4);}
+
+  @media(max-width:640px){
+    .cards-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr;row-gap:32px;}
+    .steps::before{display:none;}
+  }
+  </style>
 </head>
 <body>
   <div class="mesh" aria-hidden="true"></div>
@@ -38,15 +122,216 @@
     <a href="aplicaciones.html">Aplicaciones <span>→</span></a>
     <a href="historia.html">Historia <span>→</span></a>
     <a href="etica.html">Ética y futuro <span>→</span></a>
-    <button class="nav-mobile-cta" onclick="location.href='sobre-ia.html'">Comenzar a explorar</button>
+    <button class="nav-mobile-cta" data-href="sobre-ia.html">Comenzar a explorar</button>
   </div>
 
-  <main class="container section" style="position:relative;z-index:10;padding-top:130px;">
-    <!-- Contenido de la sección aplicaciones -->
-    <h1 class="anim-fade-up gradient-text">Próximamente</h1>
-    <p class="anim-fade-up-2" style="margin-top:16px;max-width:520px;">
-      Esta sección está en construcción. Vuelve pronto para ver el contenido completo.
-    </p>
+  <main style="position:relative;z-index:10;padding-top:68px;">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge"><span class="dot"></span>Aplicaciones reales</div>
+      <h1>IA que <br><span class="gradient-text">resuelve</span> en el mundo</h1>
+      <p>La Inteligencia Artificial ya se usa para diagnosticar, recomendar, automatizar atención al cliente y mejorar procesos industriales.</p>
+
+      <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="sobre-ia.html" class="btn" style="display:inline-flex;align-items:center;gap:10px;">Entender la IA →</a>
+        <a href="etica.html" class="btn" style="background:linear-gradient(135deg,rgba(79,200,220,0.35),rgba(162,89,255,0.45));box-shadow:0 0 28px rgba(79,200,220,0.18);">Ética y futuro →</a>
+      </div>
+    </div>
+
+    <!-- TARJETAS PRINCIPALES -->
+    <div style="text-align:center;max-width:980px;margin:0 auto;">
+      <div style="display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;">
+        Casos de uso por industria
+      </div>
+      <h2 style="margin:0 24px 6px;">Donde la IA aporta <span class="gradient-text">valor</span></h2>
+      <p style="max-width:680px;margin:0 auto;font-size:13px;">
+        Los mismos principios (aprender de datos y tomar decisiones) se adaptan a contextos muy distintos.
+      </p>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- Salud -->
+      <div class="card c-blue reveal">
+        <div class="card-icon icon-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.65-7 10-7 10z"/>
+            <path d="M12 8v6M9 11h6"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-blue">Diagnóstico asistido</div>
+        <h3>Salud y medicina</h3>
+        <p>Ayuda a detectar patrones en imágenes médicas y a estimar riesgos con datos clínicos.</p>
+        <div class="card-list">
+          <div class="card-list-item"><span class="dot-sm dot-blue"></span>Radiología y segmentación</div>
+          <div class="card-list-item"><span class="dot-sm dot-blue"></span>Predicción de riesgo</div>
+          <div class="card-list-item"><span class="dot-sm dot-blue"></span>Soporte a decisiones</div>
+        </div>
+        <div class="card-footer"><strong>Ejemplo real:</strong> análisis de imágenes para apoyar la detección temprana.</div>
+      </div>
+
+      <!-- Finanzas -->
+      <div class="card c-purple reveal reveal-delay-1">
+        <div class="card-icon icon-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7h18"/>
+            <path d="M7 7V4h10v3"/>
+            <path d="M5 7v14h14V7"/>
+            <path d="M9 12h6"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-purple">Predicción y fraude</div>
+        <h3>Finanzas</h3>
+        <p>Se usa para evaluar riesgo, detectar anomalías y mejorar decisiones en tiempo real.</p>
+        <div class="card-list">
+          <div class="card-list-item"><span class="dot-sm dot-purple"></span>Detección de fraude</div>
+          <div class="card-list-item"><span class="dot-sm dot-purple"></span>Scoring de crédito</div>
+          <div class="card-list-item"><span class="dot-sm dot-purple"></span>Pronóstico de demanda</div>
+        </div>
+        <div class="card-footer"><strong>Ejemplo real:</strong> alertas por transacciones sospechosas.</div>
+      </div>
+
+      <!-- Recomendación -->
+      <div class="card c-teal reveal reveal-delay-2">
+        <div class="card-icon icon-teal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4FC8DC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-teal">Recomendaciones</div>
+        <h3>Comercio y personalización</h3>
+        <p>Optimiza catálogos, reduce fricción de compra y ofrece sugerencias adaptadas a cada usuario.</p>
+        <div class="card-list">
+          <div class="card-list-item"><span class="dot-sm dot-teal"></span>Recomendación de productos</div>
+          <div class="card-list-item"><span class="dot-sm dot-teal"></span>Personalización</div>
+          <div class="card-list-item"><span class="dot-sm dot-teal"></span>Optimización de inventario</div>
+        </div>
+        <div class="card-footer"><strong>Ejemplo real:</strong> “te recomendamos” basado en tu historial y preferencias.</div>
+      </div>
+
+      <!-- Atención al cliente -->
+      <div class="card c-blue reveal">
+        <div class="card-icon icon-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+            <path d="M8 9h8"/>
+            <path d="M8 13h5"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-blue">Chat y automatización</div>
+        <h3>Atención al cliente</h3>
+        <p>Clasifica mensajes, responde preguntas y resume conversaciones para acelerar la asistencia.</p>
+        <div class="card-list">
+          <div class="card-list-item"><span class="dot-sm dot-blue"></span>Chatbots y agentes</div>
+          <div class="card-list-item"><span class="dot-sm dot-blue"></span>Clasificación de tickets</div>
+          <div class="card-list-item"><span class="dot-sm dot-blue"></span>Resúmenes automáticos</div>
+        </div>
+        <div class="card-footer"><strong>Ejemplo real:</strong> asistencia 24/7 con triaje de consultas.</div>
+      </div>
+
+      <!-- Educación -->
+      <div class="card c-purple reveal reveal-delay-1">
+        <div class="card-icon icon-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 9L12 4 2 9l10 5 10-5z"/>
+            <path d="M6 10.5V16c0 1 6 4 6 4s6-3 6-4v-5.5"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-purple">Tutoría inteligente</div>
+        <h3>Educación</h3>
+        <p>Genera ejercicios, explica conceptos y adapta la práctica a tu ritmo y nivel.</p>
+        <div class="card-list">
+          <div class="card-list-item"><span class="dot-sm dot-purple"></span>Generación de prácticas</div>
+          <div class="card-list-item"><span class="dot-sm dot-purple"></span>Feedback guiado</div>
+          <div class="card-list-item"><span class="dot-sm dot-purple"></span>Rutas personalizadas</div>
+        </div>
+        <div class="card-footer"><strong>Ejemplo real:</strong> un tutor que explica y propone ejercicios según tu progreso.</div>
+      </div>
+
+      <!-- Industria/Visión -->
+      <div class="card c-teal reveal reveal-delay-2">
+        <div class="card-icon icon-teal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4FC8DC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="6"/>
+            <path d="M8 16l2-2 2 2 4-6"/>
+          </svg>
+        </div>
+        <div class="card-tag tag-teal">Visión y control</div>
+        <h3>Industria</h3>
+        <p>Inspección automática, predicción de fallas y control de calidad con visión por computadora.</p>
+        <div class="card-list">
+          <div class="card-list-item"><span class="dot-sm dot-teal"></span>Inspección de calidad</div>
+          <div class="card-list-item"><span class="dot-sm dot-teal"></span>Mantenimiento predictivo</div>
+          <div class="card-list-item"><span class="dot-sm dot-teal"></span>Detección de defectos</div>
+        </div>
+        <div class="card-footer"><strong>Ejemplo real:</strong> cámaras que detectan anomalías en producción.</div>
+      </div>
+
+    </div>
+
+    <!-- PROCESO -->
+    <section class="process">
+      <p class="sub">El proceso de adopción</p>
+      <h2 style="margin-bottom:8px;">Cómo llevar la IA <span class="gradient-text">a un caso real</span></h2>
+      <p>Convertir un modelo en una solución útil requiere definir el objetivo, preparar datos, integrar y medir resultados.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-circle s-blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.07 0l1.41-1.41"/>
+              <path d="M14 11a5 5 0 0 0-7.07 0L5.52 12.4"/>
+              <path d="M9 4h6"/>
+              <path d="M9 20h6"/>
+            </svg>
+          </div>
+          <div class="step-num">01 — Objetivo</div>
+          <p>Definir qué problema resolver y qué métrica usar.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-circle s-purple">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M7 14l2-2 3 3 4-6"/>
+            </svg>
+          </div>
+          <div class="step-num">02 — Datos</div>
+          <p>Reunir, limpiar y preparar información de calidad.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-circle s-teal">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4FC8DC" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l4 8-4 12-4-12 4-8z"/>
+              <path d="M8 10h8"/>
+            </svg>
+          </div>
+          <div class="step-num">03 — Integración</div>
+          <p>Conectar el modelo con el producto o el proceso.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-circle s-mix">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+              <path d="M8 12l2.5 2.5L16 9"/>
+            </svg>
+          </div>
+          <div class="step-num">04 — Medir</div>
+          <p>Evaluar impacto y mejorar iterativamente.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h2>¿Lista para ver la IA <span class="gradient-text">en acción</span>?</h2>
+      <p>Explora el resto del sitio para entender la base tecnológica y los retos de ética y seguridad.</p>
+      <a href="etica.html" class="btn">Siguiente: Ética y futuro →</a>
+    </div>
+
   </main>
 
   <!-- ── FOOTER ── -->
