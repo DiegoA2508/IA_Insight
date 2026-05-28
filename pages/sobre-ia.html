@@ -53,14 +53,15 @@
   .rama-header p.desc{max-width:480px;margin:12px auto 0;font-size:13px;}
 
   /* TREE */
-  .tree{display:flex;flex-direction:column;align-items:center;margin:0 auto 36px;width:fit-content;}
-  .tree-root{background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;padding:12px 36px;font-family:var(--font-display);font-weight:800;font-size:13px;color:#fff;}
+  .tree-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 4px 8px;}
+  .tree{display:flex;flex-direction:column;align-items:center;margin:0 auto 36px;width:fit-content;min-width:min(280px,calc(100vw - 48px));}
+  .tree-root{background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;padding:12px clamp(20px,6vw,36px);font-family:var(--font-display);font-weight:800;font-size:clamp(11px,2.8vw,13px);color:#fff;white-space:nowrap;}
   .tree-line{width:1px;height:16px;background:var(--border);}
-  .tree-hz{width:280px;height:1px;background:var(--border);}
-  .tree-connectors{display:flex;justify-content:space-between;width:280px;}
+  .tree-hz{width:min(280px,calc(100vw - 48px));height:1px;background:var(--border);}
+  .tree-connectors{display:flex;justify-content:space-between;width:min(280px,calc(100vw - 48px));}
   .tree-connector{width:1px;height:14px;background:var(--border);}
-  .tree-nodes{display:flex;gap:10px;}
-  .tree-node{flex:1;border-radius:8px;padding:8px 10px;text-align:center;font-size:10px;}
+  .tree-nodes{display:flex;gap:clamp(6px,2vw,10px);width:min(280px,calc(100vw - 48px));}
+  .tree-node{flex:1;min-width:0;border-radius:8px;padding:8px clamp(4px,1.5vw,10px);text-align:center;font-size:10px;}
   .tree-node .node-tag{font-size:11px;font-weight:700;margin-bottom:3px;}
   .tree-node .node-name{font-size:10px;color:var(--muted);}
   .ml-node{background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.25);}
@@ -119,10 +120,43 @@
   .btn{display:inline-block;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:var(--font-body);font-size:14px;transition:transform .2s,box-shadow .2s;box-shadow:0 0 28px rgba(79,142,247,0.25);text-decoration:none;}
   .btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(79,142,247,0.4);}
 
+  @media(max-width:900px){
+    .cards-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto;}
+    .steps{grid-template-columns:repeat(2,1fr);row-gap:36px;}
+    .steps::before{display:none;}
+  }
+  @media(max-width:768px){
+    .hero{padding:48px 20px 36px;}
+    .hero h1{font-size:clamp(28px,8vw,44px);}
+    .def-grid{grid-template-columns:1fr;padding:32px 20px;gap:24px;}
+    .rama-header{padding:36px 20px 28px;}
+    .cards-grid{padding:0 20px 40px;}
+    .process{padding:36px 20px;}
+    .cta-box{margin:0 20px 40px;padding:32px 24px;}
+    .stat-year{font-size:clamp(48px,14vw,64px);}
+    .stat-box{padding:24px 20px;}
+  }
   @media(max-width:640px){
-    .def-grid,.cards-grid{grid-template-columns:1fr;}
+    main{padding-top:68px!important;}
+    .def-grid{grid-template-columns:1fr;}
     .steps{grid-template-columns:1fr 1fr;row-gap:32px;}
     .steps::before{display:none;}
+    .step-circle{width:58px;height:58px;}
+    .card{padding:22px;}
+    .tree-connectors .tree-connector:first-child{margin-left:18%!important;}
+    .tree-connectors .tree-connector:last-child{margin-right:18%!important;}
+  }
+  @media(max-width:480px){
+    .hero{padding:40px 16px 28px;}
+    .hero p{font-size:14px;}
+    .def-grid,.rama-header,.cards-grid,.process{padding-left:16px;padding-right:16px;}
+    .cta-box{margin:0 16px 32px;padding:28px 18px;}
+    .steps{grid-template-columns:1fr;row-gap:28px;}
+    .step{padding:0 8px;}
+    .btn{width:100%;max-width:280px;text-align:center;}
+    .stat-row{flex-wrap:wrap;gap:12px;}
+    .divider{display:none;}
+    .stat-item{flex:1 1 40%;}
   }
   </style>
 </head>
@@ -140,12 +174,12 @@
       <a href="etica.html">Ética</a>
     </div>
 
-    <!-- <div class="nav-right">
+    <div class="nav-right">
       <a href="sobre-ia.html" class="nav-cta">Explorar →</a>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
         <span></span><span></span><span></span>
       </button>
-    </div> -->
+    </div>
   </nav>
 
   <!-- ── MENÚ MÓVIL ── -->
@@ -197,7 +231,7 @@
       <h2>Dentro de la IA: <span class="gradient-text">cómo se organiza</span></h2>
       <p class="desc">La IA es el campo general. Dentro de él existen disciplinas especializadas, cada una con su enfoque propio.</p>
 
-      <div style="margin-top:28px;">
+      <div class="tree-wrap" style="margin-top:28px;">
         <div class="tree">
           <div class="tree-root">Inteligencia Artificial</div>
           <div class="tree-line"></div>
