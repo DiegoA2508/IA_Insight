@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Procesamiento del lenguaje natural (NLP): cómo las máquinas leen, entienden y generan texto en español y otros idiomas." />
+  <title>IA·Insight — Procesamiento del lenguaje</title>
+  <link rel="icon" type="image/png" href="../assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/icons/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css?v=4" />
+  <link rel="stylesheet" href="../css/animations.css?v=4" />
+  <link rel="stylesheet" href="../css/concept.css?v=1" />
+  <style>
+    :root { --teal: #4FC8DC; }
+    .concept-hero.theme-teal::before {
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(79, 200, 220, 0.1), transparent 70%);
+    }
+    .concept-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  </style>
+</head>
+<body>
+  <div class="mesh" aria-hidden="true"></div>
+
+  <nav role="navigation" aria-label="Navegación principal">
+    <a href="../index.html" class="nav-logo gradient-text" aria-label="IA·Insight — Inicio">IA·Insight</a>
+    <div class="nav-links" aria-hidden="true">
+      <a href="sobre-ia.html">¿Qué es?</a>
+      <a href="aplicaciones.html">Aplicaciones</a>
+      <a href="historia.html">Historia</a>
+      <a href="etica.html">Ética</a>
+    </div>
+    <div class="nav-right">
+      <a href="sobre-ia.html" class="nav-cta">Explorar →</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Menú móvil">
+    <a href="sobre-ia.html">¿Qué es la IA? <span>→</span></a>
+    <a href="aplicaciones.html">Aplicaciones <span>→</span></a>
+    <a href="historia.html">Historia <span>→</span></a>
+    <a href="etica.html">Ética y futuro <span>→</span></a>
+    <button class="nav-mobile-cta" data-href="sobre-ia.html">Comenzar a explorar</button>
+  </div>
+
+  <main style="position:relative;z-index:10;padding-top:68px;">
+
+    <header class="concept-hero theme-teal reveal">
+      <div class="concept-badge accent-teal"><span class="dot"></span>NLP — Lenguaje humano</div>
+      <h1>Procesamiento del <span class="gradient-text">lenguaje</span></h1>
+      <p>El NLP (Natural Language Processing) conecta la Inteligencia Artificial con el lenguaje que usamos cada día: texto, voz, contexto y significado.</p>
+    </header>
+
+    <div class="concept-body">
+
+      <section class="concept-section reveal">
+        <h2>¿Qué es el <span class="gradient-text">NLP</span>?</h2>
+        <p>El Procesamiento del Lenguaje Natural es la disciplina que permite a las computadoras trabajar con texto y habla en idiomas humanos. Incluye tareas como entender una pregunta, extraer información de un contrato, traducir entre idiomas, resumir noticias o detectar el tono emocional de una reseña.</p>
+        <p>El lenguaje es ambiguo: la misma frase puede tener varios sentidos según el contexto («banco» financiero o de un río). Por eso el NLP combina lingüística, estadística y modelos neuronales para aproximar la comprensión que un humano haría de forma intuitiva.</p>
+        <p>Históricamente se basaba en reglas y diccionarios; hoy la mayoría de sistemas de alto rendimiento usan representaciones numéricas del texto (embeddings) y arquitecturas profundas, especialmente Transformers.</p>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>¿Cómo <span class="gradient-text">funciona</span> el pipeline?</h2>
+        <p>Antes de que un modelo «entienda» una frase, el texto suele pasar por varias etapas de preprocesamiento y codificación.</p>
+        <div class="concept-grid-2">
+          <div class="concept-panel">
+            <h3>Tokenización</h3>
+            <p>El texto se divide en unidades (tokens): palabras, subpalabras o caracteres. Cada token se mapea a un identificador numérico que la red puede procesar.</p>
+          </div>
+          <div class="concept-panel">
+            <h3>Embeddings y contexto</h3>
+            <p>Cada token se representa como un vector en un espacio de alta dimensión. Modelos modernos combinan esos vectores con atención para capturar relaciones a larga distancia en el párrafo.</p>
+          </div>
+        </div>
+        <p style="margin-top:16px;">Tareas posteriores dependen del objetivo: clasificar un documento, etiquetar entidades (nombres, fechas, lugares), responder preguntas sobre un texto dado o generar una respuesta nueva palabra a palabra.</p>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Tareas clave del <span class="gradient-text">NLP</span></h2>
+        <ul class="concept-list teal">
+          <li><strong style="color:var(--text);">Clasificación de texto:</strong> spam vs. no spam, tema de un ticket de soporte, prioridad de una solicitud.</li>
+          <li><strong style="color:var(--text);">Extracción de entidades (NER):</strong> localizar personas, organizaciones, fechas y cantidades en documentos legales o médicos.</li>
+          <li><strong style="color:var(--text);">Análisis de sentimiento:</strong> medir si opiniones en redes o encuestas son positivas, negativas o neutras.</li>
+          <li><strong style="color:var(--text);">Traducción y resumen:</strong> convertir idiomas o condensar informes largos manteniendo la información esencial.</li>
+          <li><strong style="color:var(--text);">Pregunta-respuesta y diálogo:</strong> buscar respuestas en una base de conocimiento o mantener conversaciones con usuarios.</li>
+        </ul>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Aplicaciones en el <span class="gradient-text">día a día</span></h2>
+        <p>Los buscadores interpretan consultas en lenguaje natural. Los asistentes de voz transcriben y ejecutan órdenes. Las empresas analizan miles de comentarios de clientes automáticamente. Herramientas de accesibilidad generan subtítulos en tiempo real.</p>
+        <p>En educación, el NLP corrige redacción, explica errores gramaticales y adapta lecturas al nivel del estudiante. En periodismo y derecho, acelera la revisión de documentos extensos — siempre con supervisión humana cuando las consecuencias son importantes.</p>
+
+        <div class="concept-example teal">
+          <strong>Ejemplo concreto:</strong> Un equipo de atención al cliente recibe 10 000 mensajes al día. Un modelo de NLP clasifica cada mensaje por tema (facturación, técnico, cancelación) y detecta urgencia o tono negativo. Los casos críticos llegan primero a un agente humano, que recibe además un resumen automático del historial del cliente.
+        </div>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Conceptos <span class="gradient-text">relacionados</span></h2>
+        <p>El NLP evolucionó hacia modelos de lenguaje de gran escala; su base sigue siendo el aprendizaje automático y las redes profundas:</p>
+        <div class="concept-related">
+          <a href="machine-learning.html">Machine Learning →</a>
+          <a href="deep-learning.html">Deep Learning →</a>
+          <a href="modelos-lenguaje.html">Modelos de lenguaje (LLM) →</a>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="concept-cta reveal">
+      <div class="concept-cta-box">
+        <h2>Del texto al <span class="gradient-text">chat inteligente</span></h2>
+        <p>Conoce los LLM — la evolución del NLP — o explora aplicaciones donde el lenguaje es protagonista.</p>
+        <a href="aplicaciones.html" class="concept-btn">Ver aplicaciones reales →</a>
+        <a href="sobre-ia.html" class="concept-btn-outline">Volver a ¿Qué es la IA?</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo gradient-text">IA·Insight</div>
+          <p>Una guía clara sobre la Inteligencia Artificial — desde los fundamentos hasta el futuro.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Explorar</div>
+          <a href="sobre-ia.html">¿Qué es la IA?</a>
+          <a href="aplicaciones.html">Aplicaciones reales</a>
+          <a href="historia.html">Historia y evolución</a>
+          <a href="etica.html">Ética y futuro</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Conceptos</div>
+          <a href="machine-learning.html">Machine Learning</a>
+          <a href="deep-learning.html">Deep Learning</a>
+          <a href="procesamiento-lenguaje.html">Procesamiento del lenguaje</a>
+          <a href="modelos-lenguaje.html">Modelos de lenguaje</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <button type="button" class="footer-link-btn" data-legal="about">Sobre nosotros</button>
+          <button type="button" class="footer-link-btn" data-legal="legal">Aviso legal</button>
+          <button type="button" class="footer-link-btn" data-legal="terms">Términos y condiciones</button>
+          <button type="button" class="footer-link-btn" data-legal="privacy">Política de privacidad</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <span>© 2025 IA·Insight — Hecho con HTML, CSS y JS puro</span>
+        </div>
+        <nav class="footer-legal" aria-label="Información legal">
+          <button type="button" class="footer-legal-link" data-legal="about">Sobre nosotros</button>
+          <button type="button" class="footer-legal-link" data-legal="legal">Aviso legal</button>
+          <button type="button" class="footer-legal-link" data-legal="terms">Términos y condiciones</button>
+          <button type="button" class="footer-legal-link" data-legal="privacy">Política de privacidad</button>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Modelos de lenguaje (LLM): qué son GPT y similares, cómo predicen texto, sus límites y usos responsables." />
+  <title>IA·Insight — Modelos de lenguaje</title>
+  <link rel="icon" type="image/png" href="../assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/icons/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css?v=4" />
+  <link rel="stylesheet" href="../css/animations.css?v=4" />
+  <link rel="stylesheet" href="../css/concept.css?v=1" />
+  <style>
+    :root { --teal: #4FC8DC; }
+    .concept-hero.theme-mix::before {
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(79, 142, 247, 0.08), transparent 40%),
+                  radial-gradient(ellipse 50% 40% at 80% 10%, rgba(162, 89, 255, 0.08), transparent 50%);
+    }
+    .concept-badge .dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      animation: pulse 2s infinite;
+    }
+    .concept-list.mix li::before {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  </style>
+</head>
+<body>
+  <div class="mesh" aria-hidden="true"></div>
+
+  <nav role="navigation" aria-label="Navegación principal">
+    <a href="../index.html" class="nav-logo gradient-text" aria-label="IA·Insight — Inicio">IA·Insight</a>
+    <div class="nav-links" aria-hidden="true">
+      <a href="sobre-ia.html">¿Qué es?</a>
+      <a href="aplicaciones.html">Aplicaciones</a>
+      <a href="historia.html">Historia</a>
+      <a href="etica.html">Ética</a>
+    </div>
+    <div class="nav-right">
+      <a href="sobre-ia.html" class="nav-cta">Explorar →</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Menú móvil">
+    <a href="sobre-ia.html">¿Qué es la IA? <span>→</span></a>
+    <a href="aplicaciones.html">Aplicaciones <span>→</span></a>
+    <a href="historia.html">Historia <span>→</span></a>
+    <a href="etica.html">Ética y futuro <span>→</span></a>
+    <button class="nav-mobile-cta" data-href="sobre-ia.html">Comenzar a explorar</button>
+  </div>
+
+  <main style="position:relative;z-index:10;padding-top:68px;">
+
+    <header class="concept-hero theme-mix reveal">
+      <div class="concept-badge accent-mix"><span class="dot"></span>LLM — Gran escala</div>
+      <h1>Modelos de <span class="gradient-text">lenguaje</span></h1>
+      <p>Los Large Language Models (LLM) son redes entrenadas con enormes corpus de texto para predecir la siguiente palabra — y, en la práctica, redactar, razonar y asistir en tareas complejas.</p>
+    </header>
+
+    <div class="concept-body">
+
+      <section class="concept-section reveal">
+        <h2>¿Qué es un <span class="gradient-text">LLM</span>?</h2>
+        <p>Un modelo de lenguaje grande es un sistema de Deep Learning (casi siempre basado en la arquitectura Transformer) entrenado para modelar la probabilidad de secuencias de texto. Aprende gramática, hechos frecuentes, estilos de escritura y patrones de razonamiento a partir de libros, artículos, código y conversaciones disponibles en sus datos de entrenamiento.</p>
+        <p>Ejemplos conocidos incluyen familias como GPT, Claude, Gemini o Llama. Aunque la interfaz parezca «conversar con una persona», en el fondo el modelo calcula token a token qué respuesta es más plausible dado el contexto — incluidas tus instrucciones y el historial del chat.</p>
+        <p>«Grande» hace referencia a miles de millones de parámetros y a infraestructura de entrenamiento costosa. Esa escala es lo que permite capacidades emergentes: resumir, traducir, programar o seguir instrucciones en lenguaje natural con pocos ejemplos (few-shot).</p>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>¿Cómo <span class="gradient-text">generan</span> respuestas?</h2>
+        <p>Tras el preentrenamiento (predecir texto masivo), muchos LLM pasan por alineación: ajuste con retroalimentación humana (RLHF) o métodos similares para que las respuestas sean más útiles, seguras y coherentes con las políticas del producto.</p>
+        <div class="concept-grid-2">
+          <div class="concept-panel">
+            <h3>Ventana de contexto</h3>
+            <p>El modelo solo «ve» un número limitado de tokens a la vez (contexto). Todo lo que cabe en esa ventana influye en la respuesta; por eso se usan resúmenes o búsqueda externa (RAG) para documentos muy largos.</p>
+          </div>
+          <div class="concept-panel">
+            <h3>Muestreo y temperatura</h3>
+            <p>Al generar, no siempre se elige la palabra más probable. Parámetros como la temperatura controlan creatividad vs. determinismo. Más aleatoriedad puede dar respuestas variadas pero también más errores.</p>
+          </div>
+        </div>
+        <p style="margin-top:16px;">Los LLM no consultan una base de datos de hechos verificados en tiempo real por defecto: pueden alucinar — inventar referencias o datos con tono convincente. Por eso conviene contrastar información crítica y usar fuentes externas cuando importa la exactitud.</p>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Capacidades y <span class="gradient-text">límites</span></h2>
+        <ul class="concept-list mix">
+          <li><strong style="color:var(--text);">Fortalezas:</strong> redacción, brainstorming, explicación de conceptos, traducción, borradores de código, tutoría socrática y automatización de tareas repetitivas con lenguaje.</li>
+          <li><strong style="color:var(--text);">Límites:</strong> conocimiento con fecha de corte, posibles sesgos del corpus, errores factuales y dificultad con matemática simbólica o lógica muy larga sin herramientas auxiliares.</li>
+          <li><strong style="color:var(--text);">Privacidad:</strong> no compartas datos sensibles en servicios públicos; revisa las políticas de retención y uso de conversaciones.</li>
+          <li><strong style="color:var(--text);">Uso responsable:</strong> desinformación, suplantación o contenido dañino exigen políticas, filtros y supervisión humana en entornos profesionales.</li>
+        </ul>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Del chat a la <span class="gradient-text">integración</span></h2>
+        <p>En productos reales, los LLM se combinan con APIs, bases de datos y plugins: un asistente puede leer tu calendario, buscar en documentos internos o ejecutar código en un entorno aislado. Ese ecosistema se llama a menudo «agentes» o sistemas aumentados con recuperación (RAG).</p>
+        <p>En educación y empresas, aceleran la investigación y la comunicación; en soporte, reducen tiempos de respuesta. La clave es definir cuándo el humano debe validar la salida y cómo medir calidad, coste y impacto.</p>
+
+        <div class="concept-example mix">
+          <strong>Ejemplo concreto:</strong> Un estudiante pide a un LLM que le explique la fotosíntesis con analogías sencillas. El modelo genera una explicación clara y preguntas de repaso. El profesor recomienda contrastar definiciones con el libro de texto porque el modelo podría omitir detalles del currículo o mezclar ejemplos de otra región — el LLM asiste, no sustituye el criterio docente.
+        </div>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Conceptos <span class="gradient-text">relacionados</span></h2>
+        <p>Los LLM son la punta del iceberg del procesamiento del lenguaje, apoyados en Machine Learning y Deep Learning:</p>
+        <div class="concept-related">
+          <a href="machine-learning.html">Machine Learning →</a>
+          <a href="deep-learning.html">Deep Learning →</a>
+          <a href="procesamiento-lenguaje.html">Procesamiento del lenguaje →</a>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="concept-cta reveal">
+      <div class="concept-cta-box">
+        <h2>Usa la IA con <span class="gradient-text">criterio</span></h2>
+        <p>Explora aplicaciones reales y los dilemas éticos que surgen cuando estos modelos entran en la sociedad.</p>
+        <a href="aplicaciones.html" class="concept-btn">Ver aplicaciones reales →</a>
+        <a href="sobre-ia.html" class="concept-btn-outline">Volver a ¿Qué es la IA?</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo gradient-text">IA·Insight</div>
+          <p>Una guía clara sobre la Inteligencia Artificial — desde los fundamentos hasta el futuro.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Explorar</div>
+          <a href="sobre-ia.html">¿Qué es la IA?</a>
+          <a href="aplicaciones.html">Aplicaciones reales</a>
+          <a href="historia.html">Historia y evolución</a>
+          <a href="etica.html">Ética y futuro</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Conceptos</div>
+          <a href="machine-learning.html">Machine Learning</a>
+          <a href="deep-learning.html">Deep Learning</a>
+          <a href="procesamiento-lenguaje.html">Procesamiento del lenguaje</a>
+          <a href="modelos-lenguaje.html">Modelos de lenguaje</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <button type="button" class="footer-link-btn" data-legal="about">Sobre nosotros</button>
+          <button type="button" class="footer-link-btn" data-legal="legal">Aviso legal</button>
+          <button type="button" class="footer-link-btn" data-legal="terms">Términos y condiciones</button>
+          <button type="button" class="footer-link-btn" data-legal="privacy">Política de privacidad</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <span>© 2025 IA·Insight — Hecho con HTML, CSS y JS puro</span>
+        </div>
+        <nav class="footer-legal" aria-label="Información legal">
+          <button type="button" class="footer-legal-link" data-legal="about">Sobre nosotros</button>
+          <button type="button" class="footer-legal-link" data-legal="legal">Aviso legal</button>
+          <button type="button" class="footer-legal-link" data-legal="terms">Términos y condiciones</button>
+          <button type="button" class="footer-legal-link" data-legal="privacy">Política de privacidad</button>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=4"></script>
+</body>
+</html>

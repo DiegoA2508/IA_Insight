@@ -140,6 +140,7 @@ nav.scrolled {
 .nav-links {
   display: flex; gap: 36px;
   position: absolute; left: 50%; transform: translateX(-50%);
+  align-items: center;
 }
 .nav-links a {
   color: var(--muted); font-size: 13px; font-weight: 300;
@@ -170,6 +171,55 @@ nav.scrolled {
   white-space: nowrap;
 }
 .nav-cta:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+
+  min-width: 240px;
+
+  background: rgba(8, 13, 26, 0.98);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  padding: 8px 0;
+
+  z-index: 1000;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    visibility .25s ease;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 18px;
+  color: var(--muted);
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
 /* ── Hamburguesa ── */
 .nav-hamburger {

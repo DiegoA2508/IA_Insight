@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aprende qué es Machine Learning, cómo funciona, sus tipos principales y aplicaciones en el mundo real." />
+  <title>IA·Insight — Machine Learning</title>
+  <link rel="icon" type="image/png" href="../assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/icons/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css?v=4" />
+  <link rel="stylesheet" href="../css/animations.css?v=4" />
+  <link rel="stylesheet" href="../css/concept.css?v=1" />
+  <style>
+    :root { --teal: #4FC8DC; }
+    .concept-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  </style>
+</head>
+<body>
+  <div class="mesh" aria-hidden="true"></div>
+
+  <nav role="navigation" aria-label="Navegación principal">
+    <a href="../index.html" class="nav-logo gradient-text" aria-label="IA·Insight — Inicio">IA·Insight</a>
+    <div class="nav-links" aria-hidden="true">
+      <a href="sobre-ia.html">¿Qué es?</a>
+      <a href="aplicaciones.html">Aplicaciones</a>
+      <a href="historia.html">Historia</a>
+      <a href="etica.html">Ética</a>
+    </div>
+    <div class="nav-right">
+      <a href="sobre-ia.html" class="nav-cta">Explorar →</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Menú móvil">
+    <a href="sobre-ia.html">¿Qué es la IA? <span>→</span></a>
+    <a href="aplicaciones.html">Aplicaciones <span>→</span></a>
+    <a href="historia.html">Historia <span>→</span></a>
+    <a href="etica.html">Ética y futuro <span>→</span></a>
+    <button class="nav-mobile-cta" data-href="sobre-ia.html">Comenzar a explorar</button>
+  </div>
+
+  <main style="position:relative;z-index:10;padding-top:68px;">
+
+    <header class="concept-hero reveal">
+      <div class="concept-badge accent-blue"><span class="dot"></span>Fundamento de la IA moderna</div>
+      <h1>Machine <span class="gradient-text">Learning</span></h1>
+      <p>El aprendizaje automático permite que los sistemas mejoren su rendimiento a partir de la experiencia — sin que un programador escriba cada regla a mano.</p>
+    </header>
+
+    <div class="concept-body">
+
+      <section class="concept-section reveal">
+        <h2>¿Qué es el <span class="gradient-text">Machine Learning</span>?</h2>
+        <p>El Machine Learning (ML) es una rama de la Inteligencia Artificial centrada en construir modelos que aprenden patrones a partir de datos. En lugar de codificar explícitamente «si el correo contiene estas palabras, es spam», alimentamos al sistema con miles de ejemplos etiquetados y él infiere las reglas por sí mismo.</p>
+        <p>La idea clave es la <em style="color:var(--text);">generalización</em>: un modelo entrenado debe funcionar bien con datos nuevos que nunca vio durante el entrenamiento. Por eso la calidad, diversidad y representatividad del conjunto de datos son tan importantes como el algoritmo elegido.</p>
+        <p>El ML no es magia: es estadística y optimización aplicadas a escala. Cada predicción es una estimación basada en lo aprendido, con un margen de error medible.</p>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>¿Cómo <span class="gradient-text">funciona</span>?</h2>
+        <p>El ciclo típico de un proyecto de ML sigue cuatro fases: recopilar datos, prepararlos, entrenar un modelo y evaluarlo antes de desplegarlo en producción.</p>
+        <div class="concept-grid-2">
+          <div class="concept-panel">
+            <h3>Entrenamiento</h3>
+            <p>El modelo ajusta parámetros internos (pesos) para minimizar el error entre su predicción y la respuesta correcta en los datos de entrenamiento. Este proceso se repite miles o millones de veces.</p>
+          </div>
+          <div class="concept-panel">
+            <h3>Validación y prueba</h3>
+            <p>Se reserva una parte de los datos que el modelo no usa para entrenar. Así comprobamos si realmente aprendió patrones útiles o solo memorizó ejemplos (sobreajuste).</p>
+          </div>
+        </div>
+        <p style="margin-top:16px;">Métricas como precisión, recall, F1 o error cuadrático medio permiten comparar modelos de forma objetiva y decidir si un sistema está listo para usarse en un contexto real.</p>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Tipos principales de <span class="gradient-text">aprendizaje</span></h2>
+        <ul class="concept-list">
+          <li><strong style="color:var(--text);">Supervisado:</strong> el modelo aprende con ejemplos que incluyen la respuesta correcta (etiquetas). Ideal para clasificación y regresión: predecir precios, diagnosticar enfermedades o filtrar spam.</li>
+          <li><strong style="color:var(--text);">No supervisado:</strong> solo hay datos sin etiquetas. El sistema busca estructura: agrupar clientes similares (clustering) o reducir la dimensionalidad para visualizar información compleja.</li>
+          <li><strong style="color:var(--text);">Por refuerzo:</strong> un agente aprende mediante prueba y error, recibiendo recompensas o penalizaciones. Muy usado en robótica, juegos y optimización de rutas o inventarios.</li>
+          <li><strong style="color:var(--text);">Semi-supervisado y auto-supervisado:</strong> combinan pocos datos etiquetados con muchos sin etiquetar, aprovechando técnicas modernas cuando etiquetar es caro o lento.</li>
+        </ul>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Aplicaciones <span class="gradient-text">cotidianas</span></h2>
+        <p>El ML está detrás de recomendaciones de música y productos, detección de fraude bancario, predicción de demanda en logística, mantenimiento predictivo en fábricas y sistemas de traducción o reconocimiento de voz cuando no se usan redes profundas muy grandes.</p>
+        <p>En salud, ayuda a priorizar casos urgentes o estimar riesgos a partir de historiales clínicos. En marketing, segmenta audiencias y personaliza campañas. La clave en todos los casos es definir bien el problema: ¿qué queremos predecir y con qué datos?</p>
+
+        <div class="concept-example blue">
+          <strong>Ejemplo concreto:</strong> Un banco entrena un modelo con millones de transacciones históricas marcadas como «fraude» o «legítimas». Cuando llega una operación nueva, el sistema calcula una probabilidad de riesgo en milisegundos y puede bloquear o pedir verificación adicional — sin que un analista revise manualmente cada movimiento.
+        </div>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Conceptos <span class="gradient-text">relacionados</span></h2>
+        <p>El Machine Learning es la base sobre la que se construyen disciplinas más especializadas:</p>
+        <div class="concept-related">
+          <a href="deep-learning.html">Deep Learning →</a>
+          <a href="procesamiento-lenguaje.html">Procesamiento del lenguaje →</a>
+          <a href="modelos-lenguaje.html">Modelos de lenguaje (LLM) →</a>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="concept-cta reveal">
+      <div class="concept-cta-box">
+        <h2>¿Quieres ver el ML <span class="gradient-text">en la práctica</span>?</h2>
+        <p>Explora casos reales por industria o vuelve a los fundamentos generales de la Inteligencia Artificial.</p>
+        <a href="aplicaciones.html" class="concept-btn">Ver aplicaciones reales →</a>
+        <a href="sobre-ia.html" class="concept-btn-outline">Volver a ¿Qué es la IA?</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo gradient-text">IA·Insight</div>
+          <p>Una guía clara sobre la Inteligencia Artificial — desde los fundamentos hasta el futuro.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Explorar</div>
+          <a href="sobre-ia.html">¿Qué es la IA?</a>
+          <a href="aplicaciones.html">Aplicaciones reales</a>
+          <a href="historia.html">Historia y evolución</a>
+          <a href="etica.html">Ética y futuro</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Conceptos</div>
+          <a href="machine-learning.html">Machine Learning</a>
+          <a href="deep-learning.html">Deep Learning</a>
+          <a href="procesamiento-lenguaje.html">Procesamiento del lenguaje</a>
+          <a href="modelos-lenguaje.html">Modelos de lenguaje</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <button type="button" class="footer-link-btn" data-legal="about">Sobre nosotros</button>
+          <button type="button" class="footer-link-btn" data-legal="legal">Aviso legal</button>
+          <button type="button" class="footer-link-btn" data-legal="terms">Términos y condiciones</button>
+          <button type="button" class="footer-link-btn" data-legal="privacy">Política de privacidad</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <span>© 2025 IA·Insight — Hecho con HTML, CSS y JS puro</span>
+        </div>
+        <nav class="footer-legal" aria-label="Información legal">
+          <button type="button" class="footer-legal-link" data-legal="about">Sobre nosotros</button>
+          <button type="button" class="footer-legal-link" data-legal="legal">Aviso legal</button>
+          <button type="button" class="footer-legal-link" data-legal="terms">Términos y condiciones</button>
+          <button type="button" class="footer-legal-link" data-legal="privacy">Política de privacidad</button>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=4"></script>
+</body>
+</html>

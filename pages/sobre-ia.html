@@ -72,8 +72,9 @@
   .nlp-node{background:rgba(79,200,220,0.08);border:1px solid rgba(79,200,220,0.2);}
 
   /* CARDS */
-  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 48px;}
-  .card{border-radius:18px;padding:28px;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:default;}
+  .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1100px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 48px;}
+  a.card-link{text-decoration:none;color:inherit;display:block;}
+  .card{border-radius:18px;padding:28px;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:pointer;height:100%;}
   .card:hover{transform:translateY(-6px);}
   .card-ml{background:rgba(255,255,255,0.025);border:1px solid rgba(79,142,247,0.2);}
   .card-ml:hover{box-shadow:0 20px 50px rgba(79,142,247,0.12);border-color:rgba(79,142,247,0.45);}
@@ -81,14 +82,22 @@
   .card-dl:hover{box-shadow:0 20px 50px rgba(162,89,255,0.12);border-color:rgba(162,89,255,0.45);}
   .card-nlp{background:rgba(255,255,255,0.025);border:1px solid rgba(79,200,220,0.2);}
   .card-nlp:hover{box-shadow:0 20px 50px rgba(79,200,220,0.10);border-color:rgba(79,200,220,0.45);}
+  .card-llm{background:rgba(255,255,255,0.025);border:1px solid rgba(162,89,255,0.15);}
+  .card-llm:hover{box-shadow:0 20px 50px rgba(162,89,255,0.12);border-color:rgba(162,89,255,0.4);}
+  .card-more{margin-top:16px;font-size:12px;color:var(--accent);font-weight:400;}
+  .card-llm .card-more{color:var(--accent2);}
+  .card-dl .card-more{color:var(--accent2);}
+  .card-nlp .card-more{color:var(--teal);}
   .card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
   .icon-ml{background:rgba(79,142,247,0.12);border:1px solid rgba(79,142,247,0.25);}
   .icon-dl{background:rgba(162,89,255,0.12);border:1px solid rgba(162,89,255,0.25);}
   .icon-nlp{background:rgba(79,200,220,0.10);border:1px solid rgba(79,200,220,0.2);}
+  .icon-llm{background:linear-gradient(135deg,rgba(79,142,247,0.12),rgba(162,89,255,0.12));border:1px solid rgba(255,255,255,0.12);}
   .card-tag{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
   .tag-ml{color:var(--accent);}
   .tag-dl{color:var(--accent2);}
   .tag-nlp{color:var(--teal);}
+  .tag-llm{color:var(--text);}
   .card h3{margin-bottom:12px;font-size:18px;}
   .card p{font-size:13px;margin-bottom:18px;}
   .card-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
@@ -125,7 +134,7 @@
   .btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(79,142,247,0.4);}
 
   @media(max-width:900px){
-    .cards-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto;}
+    .cards-grid{grid-template-columns:1fr;max-width:520px;}
     .steps{grid-template-columns:repeat(2,1fr);row-gap:36px;}
     .steps::before{display:none;}
   }
@@ -260,8 +269,7 @@
     <!-- TARJETAS PRINCIPALES -->
     <div class="cards-grid" style="margin-top:32px;">
 
-      <!-- ML -->
-      <div class="card card-ml" id="ml">
+      <a href="machine-learning.html" class="card card-ml card-link">
         <div class="card-icon icon-ml">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="1.8" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
@@ -273,11 +281,11 @@
           <div class="card-list-item"><span class="dot-sm dot-ml"></span>Aprendizaje no supervisado</div>
           <div class="card-list-item"><span class="dot-sm dot-ml"></span>Aprendizaje por refuerzo</div>
         </div>
-        <div class="card-footer"><strong>Ejemplo real:</strong> El filtro de spam de tu email — aprende qué es spam leyendo miles de correos etiquetados.</div>
-      </div>
+        <div class="card-footer"><strong>Ejemplo:</strong> Filtro de spam en tu email.</div>
+        <div class="card-more">Explorar concepto →</div>
+      </a>
 
-      <!-- DL -->
-      <div class="card card-dl" id="dl">
+      <a href="deep-learning.html" class="card card-dl card-link">
         <div class="card-icon icon-dl">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M8.5 17l3.5-6 3.5 6"/></svg>
         </div>
@@ -289,29 +297,43 @@
           <div class="card-list-item"><span class="dot-sm dot-dl"></span>Generación de contenido</div>
           <div class="card-list-item"><span class="dot-sm dot-dl"></span>Redes convolucionales y transformers</div>
         </div>
-        <div class="card-footer"><strong>Ejemplo real:</strong> El reconocimiento facial de tu smartphone — una red neuronal compara millones de rasgos en milisegundos.</div>
-      </div>
+        <div class="card-footer"><strong>Ejemplo:</strong> Reconocimiento facial en smartphones.</div>
+        <div class="card-more">Explorar concepto →</div>
+      </a>
 
-      <!-- NLP -->
-      <div class="card card-nlp" id="nlp">
+      <a href="procesamiento-lenguaje.html" class="card card-nlp card-link">
         <div class="card-icon icon-nlp">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4FC8DC" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
         <div class="card-tag tag-nlp">NLP — Proc. del Lenguaje</div>
         <h3>Entiende el lenguaje humano</h3>
-        <p>El NLP permite a las máquinas leer, comprender y generar texto en idiomas humanos. Es la rama detrás de los asistentes virtuales y modelos como GPT o Claude.</p>
+        <p>El NLP permite a las máquinas leer, comprender y generar texto en idiomas humanos. Es la rama detrás de los asistentes virtuales y traductores automáticos.</p>
         <div class="card-list">
           <div class="card-list-item"><span class="dot-sm dot-nlp"></span>Análisis de sentimiento</div>
           <div class="card-list-item"><span class="dot-sm dot-nlp"></span>Traducción automática</div>
-          <div class="card-list-item"><span class="dot-sm dot-nlp"></span>Chatbots y LLMs</div>
+          <div class="card-list-item"><span class="dot-sm dot-nlp"></span>Extracción de información</div>
         </div>
-        <div class="card-footer"><strong>Ejemplo real:</strong> Esta misma página fue posible gracias a Claude, un LLM desarrollado por Anthropic.</div>
-      </div>
+        <div class="card-footer"><strong>Ejemplo:</strong> Traductores y asistentes de voz.</div>
+        <div class="card-more">Explorar concepto →</div>
+      </a>
+
+      <a href="modelos-lenguaje.html" class="card card-llm card-link">
+        <div class="card-icon icon-llm">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A259FF" stroke-width="1.8" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="card-tag tag-llm">LLM — Modelos de lenguaje</div>
+        <h3>IA generativa de texto</h3>
+        <p>Los modelos de lenguaje a gran escala (GPT, Claude, Gemini) predicen la siguiente palabra en secuencias enormes de texto, lo que les permite conversar, resumir y razonar.</p>
+        <div class="card-list">
+          <div class="card-list-item"><span class="dot-sm dot-dl"></span>Chatbots y asistentes</div>
+          <div class="card-list-item"><span class="dot-sm dot-dl"></span>Resumen y redacción</div>
+          <div class="card-list-item"><span class="dot-sm dot-dl"></span>Arquitectura transformer</div>
+        </div>
+        <div class="card-footer"><strong>Ejemplo:</strong> ChatGPT, Claude y Copilot.</div>
+        <div class="card-more">Explorar concepto →</div>
+      </a>
 
     </div>
-
-    <!-- Ancla para el footer  -->
-    <div id="llm" style="height:1px;"></div>
 
     <!-- PROCESO -->
     <div class="process">
@@ -377,10 +399,10 @@
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Conceptos</div>
-          <a href="sobre-ia.html#ml">Machine Learning</a>
-          <a href="sobre-ia.html#dl">Deep Learning</a>
-          <a href="sobre-ia.html#nlp">Procesamiento del lenguaje</a>
-          <a href="sobre-ia.html#llm">Modelos de lenguaje</a>
+          <a href="machine-learning.html">Machine Learning</a>
+          <a href="deep-learning.html">Deep Learning</a>
+          <a href="procesamiento-lenguaje.html">Procesamiento del lenguaje</a>
+          <a href="modelos-lenguaje.html">Modelos de lenguaje</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Legal</div>

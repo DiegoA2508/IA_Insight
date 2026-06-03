@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Descubre el Deep Learning: redes neuronales profundas, cómo aprenden representaciones y sus aplicaciones en visión, audio y más." />
+  <title>IA·Insight — Deep Learning</title>
+  <link rel="icon" type="image/png" href="../assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/icons/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css?v=4" />
+  <link rel="stylesheet" href="../css/animations.css?v=4" />
+  <link rel="stylesheet" href="../css/concept.css?v=1" />
+  <style>
+    :root { --teal: #4FC8DC; }
+    .concept-hero.theme-purple::before {
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(162, 89, 255, 0.1), transparent 70%);
+    }
+    .concept-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  </style>
+</head>
+<body>
+  <div class="mesh" aria-hidden="true"></div>
+
+  <nav role="navigation" aria-label="Navegación principal">
+    <a href="../index.html" class="nav-logo gradient-text" aria-label="IA·Insight — Inicio">IA·Insight</a>
+    <div class="nav-links" aria-hidden="true">
+      <a href="sobre-ia.html">¿Qué es?</a>
+      <a href="aplicaciones.html">Aplicaciones</a>
+      <a href="historia.html">Historia</a>
+      <a href="etica.html">Ética</a>
+    </div>
+    <div class="nav-right">
+      <a href="sobre-ia.html" class="nav-cta">Explorar →</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Menú móvil">
+    <a href="sobre-ia.html">¿Qué es la IA? <span>→</span></a>
+    <a href="aplicaciones.html">Aplicaciones <span>→</span></a>
+    <a href="historia.html">Historia <span>→</span></a>
+    <a href="etica.html">Ética y futuro <span>→</span></a>
+    <button class="nav-mobile-cta" data-href="sobre-ia.html">Comenzar a explorar</button>
+  </div>
+
+  <main style="position:relative;z-index:10;padding-top:68px;">
+
+    <header class="concept-hero theme-purple reveal">
+      <div class="concept-badge accent-purple"><span class="dot"></span>Redes neuronales profundas</div>
+      <h1>Deep <span class="gradient-text">Learning</span></h1>
+      <p>Aprendizaje automático con redes de muchas capas que extraen representaciones cada vez más abstractas — de píxeles a conceptos, de fonemas a significado.</p>
+    </header>
+
+    <div class="concept-body">
+
+      <section class="concept-section reveal">
+        <h2>¿Qué es el <span class="gradient-text">Deep Learning</span>?</h2>
+        <p>El Deep Learning (DL) es un subcampo del Machine Learning que utiliza redes neuronales artificiales con múltiples capas ocultas («profundas»). Cada capa transforma la entrada y pasa una representación más refinada a la siguiente, de forma análoga a cómo distintas áreas del cerebro procesan información en cascada.</p>
+        <p>A diferencia de modelos clásicos que requieren ingeniería manual de características (por ejemplo, extraer bordes en una imagen a mano), las redes profundas aprenden esas características directamente de los datos cuando hay suficiente volumen y potencia de cómputo.</p>
+        <p>El auge del DL en la última década se debe a tres factores: grandes conjuntos de datos, GPUs y algoritmos como la retropropagación optimizada que permiten entrenar millones de parámetros de forma estable.</p>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>¿Cómo <span class="gradient-text">funciona</span> una red profunda?</h2>
+        <p>Una neurona artificial recibe entradas, las combina con pesos aprendibles, aplica una función de activación y transmite el resultado. Apilando miles de neuronas en capas, la red puede aproximar funciones muy complejas.</p>
+        <div class="concept-grid-2">
+          <div class="concept-panel">
+            <h3>Retropropagación</h3>
+            <p>Tras cada predicción, el error se propaga hacia atrás capa por capa. Los pesos se ajustan con descenso de gradiente (y variantes como Adam) para reducir la pérdida en el conjunto de entrenamiento.</p>
+          </div>
+          <div class="concept-panel">
+            <h3>Representaciones jerárquicas</h3>
+            <p>Las capas inferiores capturan detalles simples (bordes, texturas); las superiores combinan esos detalles en objetos, escenas o categorías semánticas sin programar cada nivel explícitamente.</p>
+          </div>
+        </div>
+        <p style="margin-top:16px;">Técnicas como dropout, normalización por lotes y arquitecturas especializadas (CNN, RNN, Transformers) ayudan a entrenar redes más profundas sin que colapsen o memoricen ruido.</p>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Arquitecturas y <span class="gradient-text">dominios</span></h2>
+        <ul class="concept-list purple">
+          <li><strong style="color:var(--text);">CNN (redes convolucionales):</strong> diseñadas para datos en cuadrícula, como imágenes y vídeo. Detectan patrones locales con filtros que se desplazan por la imagen.</li>
+          <li><strong style="color:var(--text);">RNN y LSTM:</strong> procesan secuencias temporales: audio, series de sensores o texto antes de la era dominante del Transformer.</li>
+          <li><strong style="color:var(--text);">Transformers:</strong> usan mecanismos de atención para relacionar cualquier parte de la entrada con cualquier otra. Base de los LLM actuales y de muchos sistemas de visión modernos.</li>
+          <li><strong style="color:var(--text);">GAN y difusión:</strong> generan imágenes, música o vídeo sintético aprendiendo la distribución de los datos de entrenamiento.</li>
+        </ul>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Aplicaciones que <span class="gradient-text">cambian industrias</span></h2>
+        <p>El reconocimiento facial, la conducción asistida, la traducción neuronal, los asistentes por voz, el diagnóstico por imagen médica y la generación de contenido creativo dependen en gran medida del Deep Learning.</p>
+        <p>También impulsa sistemas de recomendación avanzados, detección de defectos en líneas de producción y modelos que resumen documentos largos. El coste computacional y energético del entrenamiento es un tema relevante: por eso muchas organizaciones usan modelos preentrenados y los adaptan (fine-tuning) en lugar de entrenar desde cero.</p>
+
+        <div class="concept-example purple">
+          <strong>Ejemplo concreto:</strong> Tu móvil desbloquea la pantalla con tu rostro gracias a una red convolucional entrenada con millones de rostros. Compara un mapa de características faciales en tiempo real con el patrón guardado de forma segura en el dispositivo — sin enviar la imagen completa a un servidor en cada desbloqueo.
+        </div>
+      </section>
+
+      <section class="concept-section reveal">
+        <h2>Conceptos <span class="gradient-text">relacionados</span></h2>
+        <p>El Deep Learning se apoya en el Machine Learning y alimenta especialmente el procesamiento del lenguaje y los modelos generativos:</p>
+        <div class="concept-related">
+          <a href="machine-learning.html">Machine Learning →</a>
+          <a href="procesamiento-lenguaje.html">Procesamiento del lenguaje →</a>
+          <a href="modelos-lenguaje.html">Modelos de lenguaje (LLM) →</a>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="concept-cta reveal">
+      <div class="concept-cta-box">
+        <h2>Del modelo al <span class="gradient-text">producto real</span></h2>
+        <p>Descubre cómo estas redes se integran en aplicaciones que usamos cada día o repasa los conceptos generales de la IA.</p>
+        <a href="aplicaciones.html" class="concept-btn">Ver aplicaciones reales →</a>
+        <a href="sobre-ia.html" class="concept-btn-outline">Volver a ¿Qué es la IA?</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo gradient-text">IA·Insight</div>
+          <p>Una guía clara sobre la Inteligencia Artificial — desde los fundamentos hasta el futuro.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Explorar</div>
+          <a href="sobre-ia.html">¿Qué es la IA?</a>
+          <a href="aplicaciones.html">Aplicaciones reales</a>
+          <a href="historia.html">Historia y evolución</a>
+          <a href="etica.html">Ética y futuro</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Conceptos</div>
+          <a href="machine-learning.html">Machine Learning</a>
+          <a href="deep-learning.html">Deep Learning</a>
+          <a href="procesamiento-lenguaje.html">Procesamiento del lenguaje</a>
+          <a href="modelos-lenguaje.html">Modelos de lenguaje</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <button type="button" class="footer-link-btn" data-legal="about">Sobre nosotros</button>
+          <button type="button" class="footer-link-btn" data-legal="legal">Aviso legal</button>
+          <button type="button" class="footer-link-btn" data-legal="terms">Términos y condiciones</button>
+          <button type="button" class="footer-link-btn" data-legal="privacy">Política de privacidad</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <span>© 2025 IA·Insight — Hecho con HTML, CSS y JS puro</span>
+        </div>
+        <nav class="footer-legal" aria-label="Información legal">
+          <button type="button" class="footer-legal-link" data-legal="about">Sobre nosotros</button>
+          <button type="button" class="footer-legal-link" data-legal="legal">Aviso legal</button>
+          <button type="button" class="footer-legal-link" data-legal="terms">Términos y condiciones</button>
+          <button type="button" class="footer-legal-link" data-legal="privacy">Política de privacidad</button>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=4"></script>
+</body>
+</html>
