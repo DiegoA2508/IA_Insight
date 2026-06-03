@@ -3,10 +3,11 @@
 Página informativa sobre Inteligencia Artificial — diseñada para ser clara, visual y accesible para cualquier persona.
 
 ## 🌐 Demo en vivo
-> [ia-insight.com](https://ia-insight.com) *(reemplaza con tu dominio)*
+> [iainsight.tech](https://iainsight.tech/) 
 
 ## 📸 Capturas
-> *(agrega capturas aquí una vez terminado el diseño)*
+> <img width="1892" height="876" alt="image" src="https://github.com/user-attachments/assets/f5c34732-69f9-4b2f-a465-445398f961e9" />
+
 
 ## 📁 Estructura del proyecto
 
@@ -62,7 +63,7 @@ Este proyecto se despliega automáticamente en **Vercel** al hacer push a `main`
 
 ## 👤 Autor
 
-**Tu Nombre** — [GitHub](https://github.com/tu-usuario) · [LinkedIn](https://linkedin.com/in/tu-usuario)
+**Diego Alexander Zuñiga** — [GitHub](https://github.com/DiegoA2508) · [LinkedIn](https://www.linkedin.com/in/diegoa25/)
 
 ---
 
