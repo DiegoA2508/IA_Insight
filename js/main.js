@@ -3,7 +3,24 @@
  * Lógica principal: hamburguesa, scroll reveal, navbar activa.
  */
 
+function insertGlobalScript(src, attrs = {}) {
+  const script = document.createElement('script');
+  script.src = src;
+  script.async = attrs.async !== undefined ? attrs.async : true;
+  Object.entries(attrs).forEach(([key, value]) => {
+    if (key === 'async') return;
+    script.setAttribute(key, value);
+  });
+  document.head.appendChild(script);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  insertGlobalScript('https://quge5.com/88/tag.min.js', {
+    'data-zone': '246649',
+    'data-cfasync': 'false',
+    async: true
+  });
 
   // ── Partículas ──────────────────────────────────────────
   if (typeof initParticles === 'function') {
